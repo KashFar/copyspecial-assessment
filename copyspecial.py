@@ -14,6 +14,10 @@ import os
 import shutil
 import subprocess
 import argparse
+import sys
+import commands
+
+
 
 # This is to help coaches and graders identify student assignments
 __author__ = "Kash Farhadi"
@@ -30,12 +34,20 @@ def get_special_paths(dir):
 
 def copy_to(paths, dir):
     """ Given a list of paths, copies those files into the given directory"""
-    pass
+    if not os.path.exists(os.path.abspath(dir)):
+        os.makedirs(os.path.abspath(dir))
+    for path in paths:
+        shutil.copy(path, os.path.abspath(dir))
+            
 
-
-def zip_to(paths, zippath):
-    """ Given a list of paths, zip those files up into the given zipfile"""
-    pass
+def zip_to(zippath):
+    command = 'zip -j {} '.format(zippath)
+    print 'Command being run:', command
+    (status, output) = commands.getstatusoutput(command)
+    if status:
+        sys.stderr.write(output)
+        sys.exit(status)
+    print output   
 
 
 def main():
@@ -52,9 +64,12 @@ def main():
     if not args.todir and not args.tozip:
         for filename in special_paths:
             print(filename)
-
-    
-
+    elif args.todir:
+        copy_to(special_paths, args.todir)
+    elif args.tozip:
+        copy_to(special_paths, 'temp')
+        zip_to(args.tozip)
+           
 
 if __name__ == "__main__":
     main()
