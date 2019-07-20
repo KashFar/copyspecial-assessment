@@ -16,11 +16,25 @@ import subprocess
 import argparse
 
 # This is to help coaches and graders identify student assignments
-__author__ = "???"
+__author__ = "Kash Farhadi"
 
 
 # +++your code here+++
 # Write functions and modify main() to call them
+
+def get_special_paths(dir):
+    """returns a list of the absolute paths of the special files in the given directory"""
+    pass
+
+def copy_to(paths, dir):
+    """ Given a list of paths, copies those files into the given directory"""
+    pass
+
+
+def zip_to(paths, zippath):
+    """ Given a list of paths, zip those files up into the given zipfile"""
+    pass
+
 
 def main():
     # This snippet will help you get started with the argparse module.
