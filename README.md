@@ -1,7 +1,7 @@
 Copyspecial
 ===========================
 
-Your starting point is [copyspecial.py](./copyspecial.py)
+The starting point is [copyspecial.py](./copyspecial.py)
 
 You will write functions and add them to `copyspecial.py`.  The `copyspecial.py` program takes one or more directories as its arguments. A "special" file is defined as one where the name contains the pattern `__w__` somewhere, where the `w` is one or more word chars. The provided main() includes code to parse the command line arguments, but the rest is up to you. Write functions to implement the features below and modify main() to call your functions.
 
